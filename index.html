@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(){
+            return Math.floor((Math.random() * 3));
+        }
+
+        function getHumanChoice(){
+            let user_input = prompt("Rock, Paper, or Scissors?");
+            if (user_input.toLowerCase() ==="rock") {
+                return 0;
+            } else if (user_input.toLowerCase() ==="paper") {
+                return 1;
+            } else {
+                return 2;
+            }
+                
+            }
+        
+        let playerScore = 0
+        let computerScore = 0
+
+        function playRound() {
+            computerChoice = getComputerChoice();
+            playerChoice = getHumanChoice();
+            console.log(computerChoice)
+            console.log(playerChoice)
+            if (computerChoice === playerChoice) {
+                console.log(`Its a tie!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`)
+            } else if (computerChoice === 0 && playerChoice === 1){
+                ++playerScore
+                console.log(`Paper beats Rock! Player wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
+            } else if (computerChoice=== 0 && playerChoice === 2){
+                ++computerScore
+                console.log(`Rock beats Scissors! Computer wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
+            } else if (computerChoice === 1 && playerChoice=== 0){
+                ++computerScore
+                console.log(`Paper beats Rock! Computer wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
+            } else if (computerChoice === 1 && playerChoice === 2){
+                ++playerScore
+                console.log(`Scissors beats Paper! Player wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
+            } else if (computerChoice === 2 && playerChoice === 0){
+                ++playerScore
+                console.log(`Rock beats Scissors! Player wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
+            } else if (computerChoice === 2 && playerChoice === 1){
+                ++computerScore
+                console.log(`Scissors beats Paper! Computer wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
+            }
+            
+        }
+
+    function playGame(){
+        let round = 0
+        while (round<5){
+            playRound()
+            ++round
+            console.log(`Round: ${round}`)
+        }
+    }
+
+    playGame()
+    </script>
+</body>
+</html>
