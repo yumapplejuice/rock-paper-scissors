@@ -1,71 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        function getComputerChoice(){
-            return Math.floor((Math.random() * 3));
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Rock-Paper-Scissors</title>
+  </head>
+  <body>
+    <div class="intro-screen">
+      <h1 class="title">Rock-Paper-Scissors</h1>
+      <p class="instruction">
+        Rock beats scissors. Scissors beats paper.Paper beats rock. Reach 5 to
+        win the game.
+      </p>
+      <button class="btn btn-start">Start</button>
+    </div>
+    <div class="game-screen hidden">
+      <div class="scores">
+        <p>You <span class="player-score">0</span></p>
+        <p>Com <span class="computer-score">0</span></p>
+      </div>
+      <div class="game-buttons">
+        <button class="btn btn-0"><div>R</div></button>
+        <button class="btn btn-1"><div>P</div></button>
+        <button class="btn btn-2"><div>S</div></button>
+      </div>
 
-        function getHumanChoice(){
-            let user_input = prompt("Rock, Paper, or Scissors?");
-            if (user_input.toLowerCase() ==="rock") {
-                return 0;
-            } else if (user_input.toLowerCase() ==="paper") {
-                return 1;
-            } else {
-                return 2;
-            }
-                
-            }
-        
-        let playerScore = 0
-        let computerScore = 0
-
-        function playRound() {
-            computerChoice = getComputerChoice();
-            playerChoice = getHumanChoice();
-            console.log(computerChoice)
-            console.log(playerChoice)
-            if (computerChoice === playerChoice) {
-                console.log(`Its a tie!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`)
-            } else if (computerChoice === 0 && playerChoice === 1){
-                ++playerScore
-                console.log(`Paper beats Rock! Player wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
-            } else if (computerChoice=== 0 && playerChoice === 2){
-                ++computerScore
-                console.log(`Rock beats Scissors! Computer wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
-            } else if (computerChoice === 1 && playerChoice=== 0){
-                ++computerScore
-                console.log(`Paper beats Rock! Computer wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
-            } else if (computerChoice === 1 && playerChoice === 2){
-                ++playerScore
-                console.log(`Scissors beats Paper! Player wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
-            } else if (computerChoice === 2 && playerChoice === 0){
-                ++playerScore
-                console.log(`Rock beats Scissors! Player wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
-            } else if (computerChoice === 2 && playerChoice === 1){
-                ++computerScore
-                console.log(`Scissors beats Paper! Computer wins!\nComputer Score: ${computerScore}\nPlayer Score: ${playerScore}`);
-            }
-            
-        }
-
-    function playGame(){
-        let round = 0
-        while (round<5){
-            playRound()
-            ++round
-            console.log(`Round: ${round}`)
-        }
-    }
-//hello lmao
-
-    playGame()
-    </script>
-</body>
+      <div class="round-result hidden">
+        <p class="round-result-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+        <!-- <button class="btn btn-ok">Ok</button> -->
+      </div>
+    </div>
+    <div class="end-screen hidden">
+      <p class="final-result">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+      <button class="btn btn-again">Play Again</button>
+    </div>
+  </body>
 </html>
